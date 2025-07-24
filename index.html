@@ -30,31 +30,21 @@
             justify-content: center;
             align-items: center;
         }
-      .dropbtn {
-              color: black;
-              padding: 25px;
-              border: none;
-              cursor: pointer;
-      }
-      .dropdown {
-          position: relative;
-          bottom: 30px;
-          display: inline-block;
-      }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 150px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-   .dropdown-content e:hover {
-        background-color: #f1f1f1
-   }
-    .dropdown:hover .dropdown-content {
-                 display: block;
-            }
+.custom-select {
+  min-width: 350px;
+}
+
+.custom-select select {
+  appearance: none;
+  width: 50%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
      
 .container {
   display: block;
@@ -120,13 +110,12 @@
     <div class="top-section">
         This is a database of resources in those counties that can be used for reference in a natural disaster or emergency. Use the drop-down menus to find specific resources tailored to your needs.
     </div>
-    
-    <div class="dropdown">
-        <button class="dropbtn">Location</button>
-      <div class="dropdown-content">
-       <e> San Joaquin </e>
-      <e> Stanislaus</e>
-  </div>
+  <div class="custom-select">
+  <select>
+    <option>Select a location</option>
+    <option>San Joaquin</option>
+    <option>Stanislaus</option>
+  </select>
 </div>
 
  <label class="container">Food
