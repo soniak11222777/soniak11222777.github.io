@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Cross Disaster Resources for Stanislaus and San Joaquin</title>
-    <meta name="description" content="This is a database of resources in those counties that can be used for reference in a natural disaster or emergency. Use the drop-down menus to find specific resources tailored to your needs.">
+    <meta name="description" content="This is a database of resources in those counties that can be used for reference in a natural disaster or emergency. Use the drop-down menus to find resources tailored to your needs.">
   <style>
-    body {margin: 0;
+    body {
+            margin: 0;
             text-align: center;
             color: black;
+            font-size: 20px;
             font-family:'Arial';
             background-color: #D9494BFF;
         }
     .header {
             position: sticky;
             top: 0;
+            color: white;
             padding: 20px;
-            font-size: 28px;
+            font-size: 35px;
+            background-color: black;
             font-family: 'Impact', sans-serif;
         }
     .top-section {
@@ -27,37 +31,94 @@
             align-items: center;
         }
       .dropbtn {
-      color: black;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
+              color: black;
+              padding: 25px;
+              font-size: 20px;
+              border: none;
+              cursor: pointer;
       }
       .dropdown {
           position: relative;
+          bottom: 20px;
           display: inline-block;
       }
     .dropdown-content {
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 160px;
+        min-width: 150px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
-   .dropdown-content a:hover {background-color: #f1f1f1}
+   .dropdown-content a:hover {
+        background-color: #f1f1f1
+   }
     .dropdown:hover .dropdown-content {
-    display: block;
+                 display: block;
             }
-
         h3 {
             font-size: 24px;
             margin-top: 15px;
-        }
+            }
+.container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  top: 40px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 85px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
       
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}  
         
     </style>
 </head>
+    
     <div class="header">Red Cross Disaster Resources for Stanislaus and San Joaquin</div>
 <body>
     <div class="top-section">
@@ -71,6 +132,35 @@
       <a> Stanislaus</a>
   </div>
 </div>
+
+ <label class="container">Food
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Hygiene
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Shelter
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Clothing
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>  
+<label class="container">Educational/Wellness Programs
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>  
+<label class="container">Transportation
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>  
+<label class="container">Pet Assistance
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>  
 
 </body>
 </html>
