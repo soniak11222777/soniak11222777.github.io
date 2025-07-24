@@ -11,6 +11,7 @@
             text-align: center;
             color: black;
             font-size: 20px;
+            min-height: 100 vh;
             font-family:'Arial';
             background-color: #D9494BFF;
         }
@@ -22,15 +23,14 @@
             font-size: 35px;
             background-color: black;
             font-family: 'Impact', sans-serif;
+            z-index: 10;
         }
     .top-section {
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+         padding: 40px 20px 20px;
         }
+        
 .custom-select {
+margin: 40px;
   min-width: 350px;
 }
 
@@ -101,6 +101,32 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }  
+
+ .navigation {
+      margin-top: 70px;
+      padding-bottom: 40px;
+    }
+    
+  .navigation a {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+
+.previous {
+
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
         
     </style>
 </head>
@@ -146,6 +172,12 @@
   <input type="checkbox">
   <span class="checkmark"></span>
 </label>  
+
+ <div class="navigation">
+      <a href="#" class="previous"> Previous</a>
+      <a href="#" class="next">Go</a>
+    </div>
+  </div>
 
 </body>
 </html>
