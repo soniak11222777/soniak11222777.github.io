@@ -9,11 +9,12 @@
     body {margin: 0;
             text-align: center;
             color: black;
+            font-family:'Arial';
+            background-color: #D9494BFF;
         }
     .header {
             position: sticky;
             top: 0;
-            background-color: #D9494BFF;
             padding: 20px;
             font-size: 28px;
             font-family: 'Impact', sans-serif;
@@ -21,12 +22,17 @@
     .top-section {
             height: 50vh;
             display: flex;
-            font-family:'Arial';
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #D9494BFF;
         }
+      .dropbtn {
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      }
       .dropdown {
           position: relative;
           display: inline-block;
@@ -37,12 +43,12 @@
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
         z-index: 1;
     }
-.dropdown:hover .dropdown-content {
+   .dropdown-content a:hover {background-color: #f1f1f1}
+    .dropdown:hover .dropdown-content {
     display: block;
-}
+            }
 
         h3 {
             font-size: 24px;
@@ -52,23 +58,19 @@
         
     </style>
 </head>
-  <body>
-
     <div class="header">Red Cross Disaster Resources for Stanislaus and San Joaquin</div>
-
+<body>
     <div class="top-section">
         <h3>This is a database of resources in those counties that can be used for reference in a natural disaster or emergency. Use the drop-down menus to find specific resources tailored to your needs.</h3>
     </div>
-      
-    <div class="dropdown">
-      <span>Location</span>
-      <div class="dropdown-content">
-        <p>San Joaquin</p>
-        <p>Stanislaus</p>
-  </div>
     
+    <div class="dropdown">
+        <button class="dropbtn">Location</button>
+      <div class="dropdown-content">
+       <a> San Joaquin </a>
+      <a> Stanislaus</a>
+  </div>
 </div>
 
 </body>
 </html>
-
