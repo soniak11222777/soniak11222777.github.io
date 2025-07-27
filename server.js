@@ -7,7 +7,7 @@ const PORT = 3000;
 app.use(cors());
 
 // Load spreadsheet
-const workbook = XLSX.readFile('./resources.xlsx');
+const workbook = XLSX.readFile('./URI 2nd Copy.xlsx');
 const sheetName = workbook.SheetNames[0];
 const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
