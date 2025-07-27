@@ -125,7 +125,6 @@
 
 
 .previous {
-
   background-color: #f1f1f1;
   color: black;
 }
@@ -136,10 +135,8 @@
 }
 .hiddenContent {
     visibility: hidden; 
-    border: 1px solid #ccc;
     padding: 20px;
     margin-top: 10px;
-    background-color: #f9f9f9;
 }
         
     </style>
@@ -189,8 +186,11 @@
 </label>  
 
  <div class="navigation">
-      <a href="#" class="previous"> Previous</a>
-      <a href="#" class="next">Go</a>
+      <a class="previous"> Previous</a>
+      <a class="next">Go</a>
+	 <div id="hiddenContent">
+        <p>This page was hidden and is now visible!</p>
+    </div>
     </div>
   </div>
 </div>
