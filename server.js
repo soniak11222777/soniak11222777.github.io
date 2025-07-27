@@ -13,18 +13,22 @@ const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
 // API endpoint to filter by location and need
 app.get('/resources', (req, res) => {
-    const { location, need } = req.query;
+    const { location, needs } = req.query;
+
+    const needsArray = needs ? needs.split(',').map(n => n.trim().toLowerCase()) : [];
 
     const filtered = data.filter(entry => {
-        return (
-            entry.Location.toLowerCase().includes(location.toLowerCase()) &&
-            entry.ResourceType.toLowerCase().includes(need.toLowerCase())
-        );
+        const entryLocation = entry.Location.toLowerCase();
+        const entryResource = entry.ResourceType.toLowerCase();
+
+        const locationMatch = location ? entryLocation.includes(location.toLowerCase()) : true;
+
+        const needMatch = needsArray.length === 0
+            ? true
+            : needsArray.some(need => entryResource.includes(need));
+
+        return locationMatch && needMatch;
     });
 
     res.json(filtered);
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
 });
