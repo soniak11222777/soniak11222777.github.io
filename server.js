@@ -32,3 +32,19 @@ app.get('/resources', (req, res) => {
 
     res.json(filtered);
 });
+
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleButton');
+    const hiddenContent = document.getElementById('hiddenContent');
+
+    toggleButton.addEventListener('click', function() {
+        if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
+            hiddenContent.style.display = 'block'; // or 'visible' if using visibility
+            toggleButton.textContent = 'Hide Content';
+        } else {
+            hiddenContent.style.display = 'none'; // or 'hidden' if using visibility
+            toggleButton.textContent = 'Show Content';
+        }
+    });
+});
