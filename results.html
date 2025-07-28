@@ -30,8 +30,15 @@
             const list = document.createElement('ul');
             data.forEach(item => {
               const li = document.createElement('li');
-              li.textContent = `${item.Name} - ${item.Contact}`;
-              list.appendChild(li);
+                li.innerHTML = `
+                  <strong>${item.Name}</strong><br>
+                  ${item.Description || 'No description provided'}<br>
+                  <strong>Phone Number:</strong> ${item.PhoneNumber || 'N/A'}<br>
+                  <strong>Address:</strong> ${item.Address || 'N/A'}<br>
+                  <strong>Resource Name:</strong> ${item.ResourceName || 'N/A'}<br><br>
+              `;
+      list.appendChild(li);
+            
             });
             document.getElementById('results').appendChild(list);
           }
