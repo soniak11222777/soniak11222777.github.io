@@ -192,14 +192,14 @@
 document.getElementById('search-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const location = document.getElementById('location').value;
+    const location = document.getElementById('Location').value;
 
     // Collect all checked checkboxes into an array
-    const checkboxes = document.querySelectorAll('input[name="need"]:checked');
+    const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
     const needs = Array.from(checkboxes).map(cb => cb.value);
 
     // Create a query string (e.g., ?location=Chicago&needs=Food,Water)
-    const queryString = `?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
+    const queryString = `?location=${encodeURIComponent(Location)}&needs=${encodeURIComponent(Tags.join(','))}`;
 
     fetch(`http://localhost:3000/resources${queryString}`)
         .then(res => res.json())
