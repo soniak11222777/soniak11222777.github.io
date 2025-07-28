@@ -19,13 +19,13 @@ app.get('/resources', (req, res) => {
 
     const filtered = data.filter(entry => {
         const entryLocation = (entry.Location || '').toLowerCase();
-        const entryResource = (entry.ResourceType || '').toLowerCase();
+        const entryTags = (entry.Tags || '').toLowerCase();
 
         const locationMatch = location ? entryLocation.includes(location.toLowerCase()) : true;
 
         const needMatch = needsArray.length === 0
             ? true
-            : needsArray.some(need => entryResource.includes(need));
+            : needsArray.some(need => entryTags.includes(need));
 
         return locationMatch && needMatch;
     });
