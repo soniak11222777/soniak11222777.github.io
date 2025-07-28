@@ -11,15 +11,15 @@ const workbook = XLSX.readFile('./URI 2nd Copy.xlsx');
 const sheetName = workbook.SheetNames[0];
 const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-// API endpoint to filter by location and need
+// API endpoint to filter by location and tags
 app.get('/resources', (req, res) => {
-    const { location, tags } = req.query;
+    const { location, needs } = req.query;
 
     const needsArray = needs ? needs.split(',').map(n => n.trim().toLowerCase()) : [];
 
     const filtered = data.filter(entry => {
-        const entryLocation = entry.Location.toLowerCase();
-        const entryResource = entry.ResourceType.toLowerCase();
+        const entryLocation = (entry.Location || '').toLowerCase();
+        const entryResource = (entry.ResourceType || '').toLowerCase();
 
         const locationMatch = location ? entryLocation.includes(location.toLowerCase()) : true;
 
@@ -32,4 +32,9 @@ app.get('/resources', (req, res) => {
 
     res.json(filtered);
 });
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
+
 
