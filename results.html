@@ -24,25 +24,25 @@
       fetch(`http://localhost:3000/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`)
         .then(res => res.json())
         .then(data => {
-          if (data.length === 0) {
-            document.getElementById('results').innerHTML += '<p>No results found.</p>';
-          } else {
-            const list = document.createElement('ul');
-            data.forEach(item => {
-              const li = document.createElement('li');
-                li.innerHTML = `
-                  <strong>${item.Name}</strong><br>
-                  ${item.Description || 'No description provided'}<br>
-                  <strong>Phone Number:</strong> ${item.PhoneNumber || 'N/A'}<br>
-                  <strong>Address:</strong> ${item.Address || 'N/A'}<br>
-                  <strong>Resource Name:</strong> ${item.ResourceName || 'N/A'}<br><br>
-              `;
+  if (data.length === 0) {
+    document.getElementById('results').innerHTML += '<p>No results found.</p>';
+  } else {
+    const list = document.createElement('ul');
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <strong>${item.Name}</strong><br>
+        ${item.Description || 'No description provided'}<br>
+        <strong>Phone:</strong> ${item.Phone || 'N/A'}<br>
+        <strong>Location:</strong> ${item.Location || 'N/A'}<br>
+        <strong>Type:</strong> ${item.ResourceType || 'N/A'}<br><br>
+      `;
       list.appendChild(li);
-            
-            });
-            document.getElementById('results').appendChild(list);
-          }
-        })
+    });
+    document.getElementById('results').appendChild(list);
+  }
+})
+        
         .catch(err => {
           console.error(err);
           document.getElementById('results').innerHTML += '<p>Error loading resources.</p>';
