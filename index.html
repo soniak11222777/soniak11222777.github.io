@@ -133,61 +133,74 @@
   background-color: #04AA6D;
   color: white;
 }
-
-        
     </style>
 </head>
-    
+
+	
     <div class="header">Red Cross Disaster Resources for Stanislaus and San Joaquin</div>
+	<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('search-form');
+  
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const location = document.getElementById('Location').value;
+    const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
+    const needs = Array.from(checkboxes).map(cb => cb.value);
+
+    // Redirect to results.html with parameters
+    const queryString = `results.html?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
+    window.location.href = queryString;
+  });
+});
+</script>
+
 <body>
     <div class="top-section">
         This is a database of resources in those counties that can be used for reference in a natural disaster or emergency. Use the drop-down menus to find specific resources tailored to your needs.
     </div>
-    <div class="form-section">
+<form id="search-form">
   <div class="custom-select">
-  <select>
-    <option>Select a location</option>
-    <option>San Joaquin</option>
-    <option>Stanislaus</option>
+  <select id="Location" name="Location" required>
+     <option value="" disabled selected>Select a location</option>
+      <option value="San Joaquin">San Joaquin</option>
+      <option value="Stanislaus">Stanislaus</option>
   </select>
 </div>
 
  <label class="container">Food
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Food">
   <span class="checkmark"></span>
 </label>
 <label class="container">Hygiene
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Hygiene">
   <span class="checkmark"></span>
 </label>
 <label class="container">Shelter
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Shelter">
   <span class="checkmark"></span>
 </label>
 <label class="container">Clothing
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Clothing">
   <span class="checkmark"></span>
 </label>  
 <label class="container">Education/Wellness Programs
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Education/Wellness Programs">
   <span class="checkmark"></span>
 </label>  
 <label class="container">Transportation
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Transportation">
   <span class="checkmark"></span>
 </label>  
 <label class="container">Pet Assistance
-  <input type="checkbox">
+  <input type="checkbox" name="Tags" value="Pet Assistance">
   <span class="checkmark"></span>
 </label>  
 
  <div class="navigation">
-      <a class="previous"> Previous</a>
-      <a class="next">Go</a>
+  <button type="submit" class="next">Go</button>
     </div>
-  </div>
-</div>
-	
 	
 </body>
 </html>
