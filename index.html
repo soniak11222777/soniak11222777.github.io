@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const needs = Array.from(checkboxes).map(cb => cb.value);
 
     // Redirect to results.html with parameters
-    const queryString = `results.html?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
+    const queryString = `results.html?Location=${encodeURIComponent(Location)}&Tags=${encodeURIComponent(Tags.join(','))}`;
     window.location.href = queryString;
   });
 });
