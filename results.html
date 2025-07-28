@@ -10,18 +10,18 @@
 
   <script>
     window.onload = function () {
-      const params = new URLSearchParams(window.location.search);
-      const location = params.get('location');
-      const needs = params.get('needs')?.split(',') || [];
+      const params = new URLSearchParams(window.Location.search);
+      const Location = params.get('Location');
+      const Tags = params.get('Tags')?.split(',') || [];
 
       // Example of showing user input
       document.getElementById('results').innerHTML = `
-        <p><strong>location:</strong> ${location}</p>
-        <p><strong>needs:</strong> ${needs.join(', ')}</p>
+        <p><strong>Location:</strong> ${Location}</p>
+        <p><strong>Tags:</strong> ${Tags.join(', ')}</p>
       `;
 
       // Example: fetch resources from your server
-      fetch(`http://localhost:3000/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`)
+      fetch(`http://localhost:3000/resources?Location=${encodeURIComponent(Location)}&Tags=${encodeURIComponent(Tags.join(','))}`)
         .then(res => res.json())
         .then(data => {
   if (data.length === 0) {
@@ -34,7 +34,7 @@
         <strong>${item.Name}</strong><br>
         ${item.Description || 'No description provided'}<br>
         <strong>Phone:</strong> ${item.Phone || 'N/A'}<br>
-        <strong>location:</strong> ${item.location || 'N/A'}<br>
+        <strong>Location:</strong> ${item.Location || 'N/A'}<br>
         <strong>Type:</strong> ${item.ResourceType || 'N/A'}<br><br>
       `;
       list.appendChild(li);
