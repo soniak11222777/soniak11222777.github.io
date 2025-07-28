@@ -23,11 +23,11 @@ app.get('/resources', (req, res) => {
 
         const LocationMatch = Location ? entryLocation.includes(Location.toLowerCase()) : true;
 
-        const needMatch = TagsArray.length === 0
+        const tagMatch = TagsArray.length === 0
             ? true
-            : TagsArray.some(need => entryResource.includes(need));
+            : TagsArray.some(tag => entryResource.includes(tag));
 
-        return LocationMatch && needMatch;
+        return LocationMatch && tagMatch;
     });
 
     res.json(filtered);
