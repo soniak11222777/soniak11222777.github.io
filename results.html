@@ -11,17 +11,17 @@
   <script>
     window.onload = function () {
       const params = new URLSearchParams(window.Location.search);
-      const Location = params.get('Location');
-      const Tags = params.get('Tags')?.split(',') || [];
+      const location = params.get('Location');
+      const tags = params.get('Tags')?.split(',') || [];
 
       // Example of showing user input
       document.getElementById('results').innerHTML = `
-        <p><strong>Location:</strong> ${Location}</p>
-        <p><strong>Tags:</strong> ${Tags.join(', ')}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <p><strong>Tags:</strong> ${tags.join(', ')}</p>
       `;
 
       // Example: fetch resources from your server
-      fetch(`http://localhost:3000/resources?Location=${encodeURIComponent(Location)}&Tags=${encodeURIComponent(Tags.join(','))}`)
+      fetch(`http://localhost:3000/resources?location=${encodeURIComponent(location)}&tags=${encodeURIComponent(tags.join(','))}`)
         .then(res => res.json())
         .then(data => {
   if (data.length === 0) {
@@ -31,12 +31,15 @@
     data.forEach(item => {
       const li = document.createElement('li');
       li.innerHTML = `
-        <strong>${item.Name}</strong><br>
-        ${item.Description || 'No description provided'}<br>
-        <strong>Phone:</strong> ${item.Phone || 'N/A'}<br>
-        <strong>Location:</strong> ${item.Location || 'N/A'}<br>
-        <strong>Type:</strong> ${item.ResourceType || 'N/A'}<br><br>
-      `;
+  <strong>${item["Resource Name"]}</strong><br>
+  ${item.Description || 'No description provided'}<br>
+  <strong>Phone:</strong> ${item["Phone Number"] || 'N/A'}<br>
+  <strong>Address:</strong> ${item.Address || 'N/A'}<br>
+  <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
+  <strong>Tags:</strong> ${item.Tags || 'N/A'}<br>
+  <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
+  <strong>Last Updated:</strong> ${item["Date Updated"] || 'N/A'}<br><br>
+`;
       list.appendChild(li);
     });
     document.getElementById('results').appendChild(list);
