@@ -14,13 +14,10 @@
       const location = params.get('location');
       const needs = params.get('needs')?.split(',') || [];
 
-      // Example of showing user input
-      
         document.getElementById('results').innerHTML = 
         <p><strong>Location:</strong> ${location}</p>
         <p><strong>Tags:</strong> ${needs.join(', ')}</p>
       ;
-
 
       // Example: fetch resources from your server
       fetch(http://localhost:3000/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))})
@@ -33,15 +30,15 @@
     data.forEach(item => {
       const li = document.createElement('li');
       li.innerHTML = `
-  <strong>${item["Resource Name"]}</strong><br>
-  ${item.Description || 'No description provided'}<br>
-  <strong>Phone:</strong> ${item["Phone Number"] || 'N/A'}<br>
-  <p><strong>Address:</strong> ${item.Address || 'N/A'}<br></p>
-  <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
-  <strong>Tags:</strong> ${item.Tags || 'N/A'}<br>
-  <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
-  <strong>Last Updated:</strong> ${item["Date Updated"] || 'N/A'}<br><br>
-`;
+          <strong>${item["Resource Name"]}</strong><br>
+          ${item.Description || 'No description provided'}<br>
+          <strong>Phone:</strong> ${item["Phone Number"] || 'N/A'}<br>
+          <p><strong>Address:</strong> ${item.Address || 'N/A'}<br></p>
+          <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
+          <strong>Tags:</strong> ${item.Tags || 'N/A'}<br>
+          <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
+          <strong>Last Updated:</strong> ${item["Date Updated"] || 'N/A'}<br><br>
+      `;
       list.appendChild(li);
     });
     document.getElementById('results').appendChild(list);
