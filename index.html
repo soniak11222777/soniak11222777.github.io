@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     
-    const location = document.getElementById('Location').value;
+    const Location = document.getElementById('Location').value;
     const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
-    const needs = Array.from(checkboxes).map(cb => cb.value);
+    const Tags = Array.from(checkboxes).map(cb => cb.value);
 
     // Redirect to results.html with parameters
     const queryString = `results.html?Location=${encodeURIComponent(Location)}&Tags=${encodeURIComponent(Tags.join(','))}`;
