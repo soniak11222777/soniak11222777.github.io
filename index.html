@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
     const needs = Array.from(checkboxes).map(cb => cb.value);
 
+ console.log("Location:", location);
+ console.log("Needs:", needs);
+	  
     // Redirect to results.html with parameters
     const queryString = `results.html?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
     window.location.href = queryString;
