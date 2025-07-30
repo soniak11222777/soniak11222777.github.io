@@ -9,6 +9,7 @@
   <div id="results">Loading...</div>
 
   <script>
+    
     window.onload = function () {
       const params = new URLSearchParams(window.location.search);
       const location = params.get('location');
@@ -39,19 +40,24 @@
           <strong>Address:</strong> ${item.Address || 'N/A'}<br>
           <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
           <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
-          <strong>Last Updated:</strong> ${item["Date Updated"] || 'N/A'}<br><br>
+          <strong>Last Updated:</strong> ${DateCovert(item["Date Updated"]) || 'N/A'}<br><br>
       `;
       list.appendChild(li);
     });
     document.getElementById('results').appendChild(list);
   }
 })
-        
         .catch(err => {
           console.error(err);
           document.getElementById('results').innerHTML += '<p>Error loading resources.</p>';
         });
     };
+    function DateCovert(serial) {
+       var utc_days  = Math.floor(serial - 25569);
+       var utc_value = utc_days * 86400;                                        
+       var date_info = new Date(utc_value * 1000);
+      return new Date(date_info.getFullYear(), date_info.getMonth(), date_info.getDate());
+      }
   </script>
 </body>
 </html>
