@@ -147,10 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const Location = document.getElementById('Location').value;
     const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
-    const Tags = Array.from(checkboxes).map(cb => cb.value);
+    const needs = Array.from(checkboxes).map(cb => cb.value);
 
     // Redirect to results.html with parameters
-    const queryString = `results.html?Location=${encodeURIComponent(Location)}&Tags=${encodeURIComponent(Tags.join(','))}`;
+    const queryString = `results.html?Location=${encodeURIComponent(Location)}&needs=${encodeURIComponent(needs.join(','))}`;
     window.location.href = queryString;
   });
 });
