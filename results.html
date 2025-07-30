@@ -20,7 +20,7 @@
       ;
 
       // Example: fetch resources from your server
-      fetch(http://localhost:3000/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))})
+     fetch(`https://red-cross-disaster-resources.onrender.com/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`)
         .then(res => res.json())
         .then(data => {
   if (data.length === 0) {
