@@ -146,10 +146,10 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     
     const location = document.getElementById('Location').value;
+   console.log('Dropdown value:', location);
     const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
     const needs = Array.from(checkboxes).map(cb => cb.value);
 
- console.log("Location:", location);
  console.log("Needs:", needs);
 	  
     // Redirect to results.html with parameters
