@@ -1,0 +1,24 @@
+{
+  "name": "dat-resources-api",
+  "version": "1.0.0",
+  "description": "API for Red Cross DAT",
+  "main": "server.js",
+  "scripts": {
+    "test": "start: node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soniak11222777/soniak11222777.github.io.git"
+  },
+  "keywords": [
+    "DAT",
+    "resources"
+  ],
+  "author": "Sonia Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soniak11222777/soniak11222777.github.io/issues"
+  },
+  "homepage": "https://github.com/soniak11222777/soniak11222777.github.io#readme"
+}
