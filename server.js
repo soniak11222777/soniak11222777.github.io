@@ -12,6 +12,9 @@ const sheetName = workbook.SheetNames[0];
 const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
 // API endpoint to filter by location and tags
+app.get('/', (req, res) => {
+  res.send('Red Cross Disaster Resources API is running.');
+});
 app.get('/resources', (req, res) => {
     const { location, needs } = req.query;
 
