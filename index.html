@@ -138,26 +138,6 @@
 
 	
     <div class="header">Red Cross Disaster Resources for Stanislaus and San Joaquin</div>
-	<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('search-form');
-  
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    
-    const location = document.getElementById('Location').value;
-   console.log('Dropdown value:', location);
-    const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
-    const needs = Array.from(checkboxes).map(cb => cb.value);
-
- console.log("Needs:", needs);
-	  
-    // Redirect to results.html with parameters
-    const queryString = `results.html?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
-    window.location.href = queryString;
-  });
-});
-</script>
 
 <body>
     <div class="top-section">
@@ -166,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <form id="search-form">
   <div class="custom-select">
   <select id="Location" name="Location" required>
-     <option value="" disabled>Select a location</option>
+     <option value="" disabled selected>Select a location</option>
       <option value="San Joaquin">San Joaquin</option>
       <option value="Stanislaus">Stanislaus</option>
   </select>
@@ -205,5 +185,26 @@ document.addEventListener('DOMContentLoaded', function () {
   <button type="submit" class="next">Go</button>
     </div>
 </form>
+		<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('search-form');
+  
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const location = document.getElementById('Location').value;
+   console.log('Dropdown value:', location);
+    const checkboxes = document.querySelectorAll('input[name="Tags"]:checked');
+    const needs = Array.from(checkboxes).map(cb => cb.value);
+
+ console.log("Needs:", needs);
+	  
+    // Redirect to results.html with parameters
+    const queryString = `results.html?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`;
+    window.location.href = queryString;
+  });
+});
+</script>
+
 </body>
 </html>
