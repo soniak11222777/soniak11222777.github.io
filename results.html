@@ -28,6 +28,7 @@
         .then(res => res.json())
         .then(data => {
           if (data.length === 0) {
+            console.log(data);
             document.getElementById('results').innerHTML += '<p>No results found.</p>';
           } else {
             const list = document.createElement('ul');
