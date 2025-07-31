@@ -32,19 +32,19 @@
           } else {
             const list = document.createElement('ul');
             data.forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-          <strong>${item["Resource Name"]}</strong><br>
-         <strong>Description:</strong> ${item.Description || 'No description provided'}<br>
-          <strong>Phone:</strong> ${item["Phone Number"] || 'N/A'}<br>
-          <strong>Address:</strong> ${item.Address || 'N/A'}<br>
-          <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
-          <strong>Tags:</strong> ${item.Tags || 'N/A'}<br>
-          <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
-          <strong>Last Updated:</strong> ${DateCovert(item["Date Updated"]) || 'N/A'}<br><br>
-      `;
-      list.appendChild(li);
-    });
+              const li = document.createElement('li');
+                  li.innerHTML = `
+                    <strong>${item["Resource Name"]}</strong><br>
+                   <strong>Description:</strong> ${item.Description || 'No description provided'}<br>
+                  <strong>Phone:</strong> ${item["Phone Number"] || 'N/A'}<br>
+                  <strong>Address:</strong> ${item.Address || 'N/A'}<br>
+                  <strong>Hours:</strong> ${item.Hours || 'N/A'}<br>
+                  <strong>Tags:</strong> ${item.Tags || 'N/A'}<br>
+                <strong>Notes:</strong> ${item["Other notes "] || 'N/A'}<br>
+                <strong>Last Updated:</strong> ${DateCovert(item["Date Updated"]) || 'N/A'}<br><br>
+                  `;
+              list.appendChild(li);
+            });
     document.getElementById('results').appendChild(list);
   }
 })
