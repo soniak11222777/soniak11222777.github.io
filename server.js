@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 });
 app.get('/resources', (req, res) => {
     const { location, needs } = req.query;
-
     const needsArray = needs ? needs.split(',').map(n => n.trim().toLowerCase()) : [];
 
     const filtered = data.filter(entry => {
