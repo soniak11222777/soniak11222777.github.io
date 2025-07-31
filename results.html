@@ -27,11 +27,11 @@
      fetch(`https://red-cross-disaster-resources.onrender.com/resources?location=${encodeURIComponent(location)}&needs=${encodeURIComponent(needs.join(','))}`)
         .then(res => res.json())
         .then(data => {
-  if (data.length === 0) {
-    document.getElementById('results').innerHTML += '<p>No results found.</p>';
-  } else {
-    const list = document.createElement('ul');
-    data.forEach(item => {
+          if (data.length === 0) {
+            document.getElementById('results').innerHTML += '<p>No results found.</p>';
+          } else {
+            const list = document.createElement('ul');
+            data.forEach(item => {
       const li = document.createElement('li');
       li.innerHTML = `
           <strong>${item["Resource Name"]}</strong><br>
